@@ -1,0 +1,18 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ReassignedToPlainText" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SSBasedInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <searchConfiguration name="tabler" problemDescriptor="use &lt;bhr-icon /&gt;" text="&lt;bhr-tabler&gt;&lt;/bhr-tabler&gt;" recursive="true" caseInsensitive="false" type="HTML">
+        <constraint name="__context__" within="" contains="" />
+      </searchConfiguration>
+      <searchConfiguration name="tabler" text="&lt;i-tabler&gt;&lt;/i-tabler&gt;" recursive="true" caseInsensitive="false" type="HTML">
+        <constraint name="__context__" within="" contains="" />
+      </searchConfiguration>
+      <searchConfiguration name="tabler" text="&lt;tabler-icon&gt;&lt;/tabler-icon&gt;" recursive="true" caseInsensitive="false" type="HTML">
+        <constraint name="__context__" within="" contains="" />
+      </searchConfiguration>
+    </inspection_tool>
+  </profile>
+</component>
