@@ -5,291 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cicho Sza</title>
   <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-  <style media="screen">
-    body {
-      background: #eceff1;
-      color: rgba(0, 0, 0, 0.87);
-      font-family: Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    #message {
-      text-align: center;
-      background: white;
-      max-width: 500px;
-      margin: 100px auto 16px;
-      padding: 32px 24px;
-      border-radius: 3px;
-    }
-
-    #message h2 {
-      color: #ffa100;
-      font-weight: bold;
-      font-size: 16px;
-      margin: 0 0 8px;
-    }
-
-    #message h1 {
-      font-size: 22px;
-      font-weight: 300;
-      color: rgba(0, 0, 0, 0.6);
-      margin: 0 0 16px;
-    }
-
-    #message p {
-      line-height: 140%;
-      margin: 16px 0 24px;
-      font-size: 14px;
-    }
-
-    #message a {
-      display: block;
-      text-align: center;
-      background: #039be5;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: white;
-      padding: 16px;
-      border-radius: 4px;
-    }
-
-    #message, #message a {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    }
-
-    #load {
-      color: rgba(0, 0, 0, 0.4);
-      text-align: center;
-      font-size: 13px;
-    }
-
-    h1 {
-      font-family: "Muli", sans-serif;
-      font-size: 4em;
-      font-weight: 700;
-    }
-
-    a {
-      color: #333;
-      text-decoration: none;
-      transition: color 0.3s;
-      outline: none;
-    }
-
-    a:hover,
-    a:focus {
-      color: #222;
-    }
-
-    a.flip-animate {
-      span {
-        position: relative;
-        display: inline-block;
-        padding: 0;
-        transition: transform 0.3s;
-      }
-
-      &:hover span,
-      &:focus span {
-        transform: rotate(180deg);
-      }
-
-      &:hover span,
-      &:focus span {
-        color: #e3780a;
-      }
-    }
-
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      height: 200px;
-      width: 236px;
-      position: relative;
-
-      & > * {
-        position: absolute;
-        height: 200px;
-      }
-
-      .left {
-        animation: left 3s ease-out;
-      }
-
-      .right {
-        animation: right 3s ease-out;
-      }
-
-      .c {
-        animation: c 3s ease-out;
-      }
-
-      .cichosza {
-        filter: drop-shadow(0px 0px 0px #222);
-        animation: cichosza 3s ease-out;
-      }
-    }
-
-    @keyframes left {
-      0% {
-        opacity: 0;
-        left: -20px;
-        transform: rotate(-45deg) scale(1.2);
-        filter: blur(3px);
-      }
-      20% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-        left: 0;
-        transform: rotate(0) scale(1);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes right {
-      0% {
-        opacity: 0;
-        right: -20px;
-        transform: rotate(-45deg) scale(1.2);
-        filter: blur(3px);
-      }
-      20% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-        right: 0;
-        transform: rotate(0) scale(1);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes c {
-      0% {
-        opacity: 0;
-        bottom: -80px;
-      }
-      30% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-        bottom: 0;
-      }
-    }
-
-    @keyframes cichosza {
-      0% {
-        opacity: 0;
-        bottom: -100px;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-        bottom: 0;
-      }
-    }
-
-    @keyframes vid {
-      0% {
-        opacity: 0;
-        transform: rotate(-15deg) scale(1.5);
-      }
-      100% {
-        opacity: 1;
-        transform: rotate(0) scale(1);
-      }
-    }
-
-    @keyframes noise {
-      0% {
-        background-position: 0 0;
-      }
-      100% {
-        background-position: 100% 100%;
-      }
-    }
-
-    @keyframes gone {
-      0% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-
-    .vid-container {
-      position: absolute;
-      top: -5px;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-
-      video {
-        height: 100%;
-        width: 100%;
-        filter: blur(3px) opacity(0.1);
-        z-index: -1;
-        animation: vid 5s ease-out;
-        object-fit: cover;
-      }
-    }
-
-    .noise {
-      animation: noise .5s steps(10) infinite, gone 5s ease-out forwards;
-      background-attachment: fixed;
-      background-repeat: repeat;
-      background-size: auto;
-      background-image: url('./img/noise.png');
-      height: 100vh;
-      left: 0;
-      pointer-events: none;
-      position: fixed;
-      top: 0;
-      transition: opacity 1s ease-out;
-      width: 100vw;
-      z-index: 102;
-    }
-
-    #message, #load {
-      position: relative;
-      opacity: 0;
-      animation: cichosza 3s ease-out 2s forwards;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 </head>
-<body>
+<body style="overflow: hidden;">
 <div class="vid-container">
   <div class="noise"></div>
-  <video src="./img/pexels_videos_2345459%20(360p).mp4" onloadstart="this.playbackRate = .8;" muted autoplay loop></video>
+  <video style="display: none;"
+         src="./img/pexels_videos_2345459%20(360p).mp4"
+         onloadstart="this.playbackRate = .8;"
+         muted
+         autoplay
+         loop></video>
 </div>
-<div class="container">
-  <div class="d-flex justify-content-center mt-5">
-    <a href="https://www.instagram.com/cicho_sza_cocktailbar/" target="_blank" class="logo-container mt-5">
+<div data-scroll-container>
+  <div class="d-flex justify-content-center mt-5" style="height: 95vh;">
+    <a href="https://www.instagram.com/cicho_sza_cocktailbar/" target="_blank" class="logo-container">
       <img class="img-fluid left" src="./img/left.png" alt="left"/>
       <img class="img-fluid c" src="./img/C.png" alt="C"/>
       <img class="img-fluid cichosza" src="./img/cichosza.png" alt="cichosza"/>
       <img class="img-fluid right" src="./img/right.png" alt="right"/>
     </a>
   </div>
+  <section class="tiles tiles--rotated" id="grid2">
+    <svg>
+      <clipPath id="wave" clipPathUnits="objectBoundingBox">
+        <path class="st0" d="M1,0c0,0-0.3,0.1-0.5,0.1S0.3,0,0,0.1V1h1L1,0z"/>
+      </clipPath>
+    </svg>
+    <div class="tiles__wrap">
+      <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+        <div class="tiles__line-img"></div>
+        <div class="tiles__line-img"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/3.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/4.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/5.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/6.jpg)"></div>
+      </div>
+      <div class="tiles__line" data-scroll data-scroll-speed="-1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+        <div class="tiles__line-img"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/8.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/9.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/10.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/11.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/13.jpg)"></div>
+      </div>
+      <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+        <div class="tiles__line-img" style="background-image:url(img/cicho/13.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/14.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/15.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/16.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/17.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/18.jpg)"></div>
+      </div>
+      <div class="tiles__line" data-scroll data-scroll-speed="-1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+        <div class="tiles__line-img" style="background-image:url(img/cicho/1.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/2.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/3.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/4.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/5.jpg)"></div>
+        <div class="tiles__line-img"></div>
+      </div>
+      <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+        <div class="tiles__line-img"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/6.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/7.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/8.jpg)"></div>
+        <div class="tiles__line-img"></div>
+        <div class="tiles__line-img"></div>
+      </div>
+    </div>
+  </section>
+  <section class="content content--feature">
+    <p class="content__breakout content__breakout--big" data-scroll data-scroll-speed="20" data-scroll-direction="horizontal">do każdego podchodzimy indywidualnei</p>
+    <p class="content__breakout content__breakout--medium" data-scroll data-scroll-speed="8" data-scroll-direction="horizontal">aby ten wieczór był zapamiętany na długo</p>
+  </section>
+  <section class="tiles tiles--columns-rotated tiles--darker" id="grid">
+    <div class="tiles__wrap">
+      <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid">
+        <div class="tiles__line-img" style="background-image:url(img/cicho/1.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/2.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/3.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/4.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/5.jpg)"></div>
+      </div>
+      <div class="tiles__line" data-scroll data-scroll-speed="-1" data-scroll-target="#grid">
+        <div class="tiles__line-img" style="background-image:url(img/cicho/5.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/6.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/1.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/8.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/9.jpg)"></div>
+      </div>
+      <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid">
+        <div class="tiles__line-img" style="background-image:url(img/cicho/9.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/10.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/11.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/1.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/13.jpg)"></div>
+      </div>
+      <div class="tiles__line" data-scroll data-scroll-speed="-1" data-scroll-target="#grid">
+        <div class="tiles__line-img" style="background-image:url(img/cicho/13.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/14.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/15.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/16.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/17.jpg)"></div>
+      </div>
+      <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid">
+        <div class="tiles__line-img" style="background-image:url(img/cicho/17.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/18.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/1.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/2.jpg)"></div>
+        <div class="tiles__line-img" style="background-image:url(img/cicho/3.jpg)"></div>
+      </div>
+    </div>
+    <h2 class="tiles__title">Kontakt</h2>
+  </section>
 </div>
-
 <!--<img class="img-fluid" src="./img/20231026_204221.jpg" alt="right"/>-->
 
-<div id="message">
+<!--<div id="message">
   Siemasz wariacie, tutaj sobie będziemy grzebać z Cicho
-</div>
+</div>-->
 <p id="load">Cicho Sza Loading&hellip;</p>
 
 <script>
@@ -297,7 +134,31 @@
     const loadEl = document.querySelector('#load');
 
     loadEl.innerHTML = `<a href="#" class="flip-animate">Made with 🥃 by <span>FlipTheScript</span> ©2024</a>`;
+
+
   });
+
+  const video = document.querySelector("video");
+
+  video.onloadeddata = (event) => {
+    console.log(
+      "Yay! The readyState just increased to  " +
+      "HAVE_CURRENT_DATA or greater for the first time.",
+    );
+    video.style.display = 'block';
+
+  };
+
+  setTimeout(() => {
+    // Initialize the Locomotive scroll
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true,
+      smoothMobile: true
+    });
+
+    scroll.scrollTo(100);
+  }, 5000)
 </script>
 </body>
 </html>

@@ -1,0 +1,270 @@
+body {
+  background: #292929;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#message {
+  text-align: center;
+  background: white;
+  max-width: 500px;
+  margin: 100px auto 16px;
+  padding: 32px 24px;
+  border-radius: 3px;
+}
+
+#message h2 {
+  color: #ffa100;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+#message h1 {
+  font-size: 22px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0 0 16px;
+}
+
+#message p {
+  line-height: 140%;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
+
+#message a {
+  display: block;
+  text-align: center;
+  background: #039be5;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+#message, #message a {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#load {
+  color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  font-size: 13px;
+}
+
+h1 {
+  font-family: "Muli", sans-serif;
+  font-size: 4em;
+  font-weight: 700;
+}
+
+a {
+  color: #ac893c;
+  text-decoration: none;
+  transition: color 0.3s;
+  outline: none;
+}
+
+a:hover,
+a:focus {
+  color: #222;
+}
+
+a.flip-animate {
+  span {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    transition: transform 0.3s;
+  }
+
+  &:hover span,
+  &:focus span {
+    transform: rotate(180deg);
+  }
+
+  &:hover span,
+  &:focus span {
+    color: #e3780a;
+  }
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  width: 236px;
+  position: relative;
+  margin-top: 30vh;
+
+  & > * {
+    position: absolute;
+    height: 200px;
+    filter: drop-shadow(0px 0px 0px #222);
+  }
+
+  .left {
+    animation: left 4s ease-out;
+  }
+
+  .right {
+    animation: right 4s ease-out;
+  }
+
+  .c {
+    animation: c 5s ease-out;
+  }
+
+  .cichosza {
+    animation: cichosza 5s ease-out;
+  }
+}
+
+@keyframes left {
+  0% {
+    opacity: 0;
+    left: -20px;
+    transform: rotate(45deg) scale(1.5);
+    filter: blur(3px);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+    transform: rotate(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes right {
+  0% {
+    opacity: 0;
+    right: -20px;
+    transform: rotate(45deg) scale(1.5);
+    filter: blur(3px);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    right: 0;
+    transform: rotate(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes c {
+  0% {
+    opacity: 0;
+    bottom: -80px;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+@keyframes cichosza {
+  0% {
+    opacity: 0;
+    bottom: -100px;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+@keyframes vid {
+  0% {
+    opacity: 0;
+    transform: rotate(-15deg) scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes noise {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes gone {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.vid-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  video {
+    height: 100%;
+    width: 100%;
+    filter: blur(3px) opacity(0.1);
+    z-index: -1;
+    animation: vid 5s ease-out;
+    object-fit: cover;
+  }
+}
+
+.noise {
+  animation: noise .5s steps(10) infinite, gone 5s ease-out forwards;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: auto;
+  background-image: url("../img/noise.png");
+  height: 100vh;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transition: opacity 1s ease-out;
+  width: 100vw;
+  z-index: 102;
+}
+
+#message, #load {
+  position: relative;
+  opacity: 0;
+  animation: cichosza 3s ease-out 2s forwards;
+}
+
+#grid2 {
+  height: 100vh;
+  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 80%, rgba(0,0,0,0) 100%);
+  clip-path: url(#wave);
+}
+#grid {
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+}
