@@ -3,7 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cicho Sza</title>
+  <meta property="og:image" content="https://cicho-sza.web.app/img/logo_black.PNG" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cicho-sza.web.app/" />
+  <meta property="og:title" content="Cicho Sza Cocktails & Whisky" />
+  <meta property="og:description" content="Exquisite cocktails with atmosphere" />
+  <title>Cicho Sza Cocktails & Whisky</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png" />
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/base.css">
@@ -20,7 +26,7 @@
          loop></video>
 </div>
 <div data-scroll-container>
-  <div class="d-flex justify-content-center mt-5" style="height: 95vh;">
+  <div class="d-flex justify-content-center logo-wrapper">
     <a href="https://www.instagram.com/cicho_sza_cocktailbar/" target="_blank" class="logo-container">
       <img class="img-fluid left" src="./img/left.png" alt="left"/>
       <img class="img-fluid c" src="./img/C.png" alt="C"/>
@@ -78,7 +84,7 @@
     </div>
   </section>
   <section class="content content--feature">
-    <p class="content__breakout content__breakout--big" data-scroll data-scroll-speed="20" data-scroll-direction="horizontal">do każdego podchodzimy indywidualnei</p>
+    <p class="content__breakout content__breakout--big" data-scroll data-scroll-speed="20" data-scroll-direction="horizontal">indywidualne podejście</p>
     <p class="content__breakout content__breakout--medium" data-scroll data-scroll-speed="8" data-scroll-direction="horizontal">aby ten wieczór był zapamiętany na długo</p>
   </section>
   <section class="tiles tiles--columns-rotated tiles--darker" id="grid">
@@ -157,8 +163,8 @@
       smoothMobile: true
     });
 
-    scroll.scrollTo(100);
-  }, 5000)
+    scroll.scrollTo(window.innerHeight / 9);
+  }, 4500)
 </script>
 </body>
 </html>

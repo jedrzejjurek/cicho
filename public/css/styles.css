@@ -93,13 +93,17 @@ a.flip-animate {
   }
 }
 
+.logo-wrapper {
+  height: 100vh;
+}
+
 .logo-container {
   display: flex;
   justify-content: center;
   height: 200px;
   width: 236px;
   position: relative;
-  margin-top: 30vh;
+  margin-top: 35vh;
 
   & > * {
     position: absolute;
