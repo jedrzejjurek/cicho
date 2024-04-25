@@ -12,9 +12,9 @@
   <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png" />
   <link rel="stylesheet" href="./css/styles.css?1">
   <link rel="stylesheet" href="./css/base.css?1">
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.6.1/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 </head>
-<body style="overflow: hidden;">
+<body>
 <div class="vid-container">
   <div class="noise"></div>
   <video style="display: none;"
@@ -32,6 +32,16 @@
       <img class="img-fluid cichosza" src="./img/cichosza.png" alt="cichosza"/>
       <img class="img-fluid right" src="./img/right.png" alt="right"/>
     </a>
+  </div>
+  <div class="arrow-wrapper">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <path d="M19.9201 8.9502L13.4001 15.4702C12.6301 16.2402 11.3701 16.2402 10.6001 15.4702L4.08008 8.9502" stroke="#e0ba66"
+              stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+      </g>
+    </svg>
   </div>
   <section class="tiles tiles--rotated" id="grid2">
     <svg>
@@ -86,7 +96,7 @@
     <p class="content__breakout content__breakout--big" data-scroll data-scroll-speed="20" data-scroll-direction="horizontal">indywidualne podejście</p>
     <p class="content__breakout content__breakout--medium" data-scroll data-scroll-speed="8" data-scroll-direction="horizontal">aby ten wieczór był zapamiętany na długo</p>
   </section>
-  <section class="tiles tiles--columns-rotated tiles--darker" id="grid">
+  <section class="tiles tiles--columns-rotated" id="grid">
     <div class="tiles__wrap">
       <div class="tiles__line" data-scroll data-scroll-speed="1" data-scroll-target="#grid">
         <div class="tiles__line-img" style="background-image:url(img/cicho/1.jpg)"></div>
@@ -137,30 +147,47 @@
 </div>-->
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  let scrollUsed = false;
+
+  /*document.addEventListener('DOMContentLoaded', function() {
     const loadEl = document.querySelector('#load');
 
     loadEl.innerHTML = `<a href="#" class="flip-animate">Made with 🥃 by <span>FlipTheScript</span> ©2024</a>`;
+  });*/
 
-
+  // Initialize the Locomotive scroll
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    smartphone: {
+      smooth: true,
+    },
+    tablet: {
+      smooth: true,
+    }
   });
 
-  const video = document.querySelector("video");
+  scroll.on('scroll', (args) => {
+    scrollUsed = true;
+  });
+
+  const video = document.querySelector('video');
 
   video.onloadeddata = (event) => {
     video.style.display = 'block';
   };
 
-  setTimeout(() => {
-    // Initialize the Locomotive scroll
-    const scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
-      smooth: true,
-      smoothMobile: true
-    });
+  document.querySelector('.arrow-wrapper svg').addEventListener('click', () => {
+    scroll.scrollTo(window.innerHeight, { duration: 1000 });
+  });
 
-    scroll.scrollTo(window.innerHeight / 9);
-  }, 4500)
+  setTimeout(() => {
+    if (!scrollUsed) {
+      scroll.scrollTo(window.innerHeight / 9, { duration: 2000 });
+    }
+
+    document.querySelector('.arrow-wrapper').style.opacity = 1;
+  }, 3000);
 </script>
 </body>
 </html>
