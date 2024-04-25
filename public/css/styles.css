@@ -54,6 +54,42 @@ body {
   color: rgba(0, 0, 0, 0.4);
   text-align: center;
   font-size: 13px;
+  height: 40px;
+  margin-top: -50px;
+
+  a {
+    color: #7c612d;
+    text-decoration: none;
+    transition: color 0.3s;
+    outline: none;
+    margin-bottom: 15px;
+  }
+
+  a:hover,
+  a:focus {
+    color: #c19847;
+  }
+
+  a.flip-animate {
+    span {
+      position: relative;
+      display: inline-block;
+      padding: 0;
+      transition: transform .8s;
+      font-weight: 600;
+    }
+
+    &:hover span,
+    &:focus span {
+      transform: rotate(540deg);
+    }
+
+    &:hover span,
+    &:focus span {
+      color: #e3970a;
+    }
+  }
+
 }
 
 h1 {
@@ -62,39 +98,10 @@ h1 {
   font-weight: 700;
 }
 
-a {
-  color: #ac893c;
-  text-decoration: none;
-  transition: color 0.3s;
-  outline: none;
-}
-
-a:hover,
-a:focus {
-  color: #222;
-}
-
-a.flip-animate {
-  span {
-    position: relative;
-    display: inline-block;
-    padding: 0;
-    transition: transform 0.3s;
-  }
-
-  &:hover span,
-  &:focus span {
-    transform: rotate(180deg);
-  }
-
-  &:hover span,
-  &:focus span {
-    color: #e3780a;
-  }
-}
-
 .logo-wrapper {
   height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .logo-container {
